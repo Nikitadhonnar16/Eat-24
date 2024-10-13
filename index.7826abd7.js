@@ -2961,7 +2961,6 @@ var _errorDefault = parcelHelpers.interopDefault(_error);
 var _reactRouterDom = require("react-router-dom");
 var _restarantMenu = require("./src/Components/RestarantMenu");
 var _restarantMenuDefault = parcelHelpers.interopDefault(_restarantMenu);
-// import Grocery from "./src/Components/Grocery";
 const Grocery = /*#__PURE__*/ (0, _react.lazy)(()=>require("77573db3abe82f69"));
 _c = Grocery;
 const AppLayout = ()=>{
@@ -2971,18 +2970,18 @@ const AppLayout = ()=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "App.js",
                 lineNumber: 21,
-                columnNumber: 13
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "App.js",
                 lineNumber: 22,
-                columnNumber: 13
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "App.js",
         lineNumber: 20,
-        columnNumber: 9
+        columnNumber: 5
     }, undefined);
 };
 _c1 = AppLayout;
@@ -2991,40 +2990,40 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
             fileName: "App.js",
-            lineNumber: 31,
-            columnNumber: 17
+            lineNumber: 30,
+            columnNumber: 14
         }, undefined),
         children: [
             {
                 path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                     fileName: "App.js",
-                    lineNumber: 35,
-                    columnNumber: 25
+                    lineNumber: 34,
+                    columnNumber: 18
                 }, undefined)
             },
             {
                 path: "/about",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
                     fileName: "App.js",
-                    lineNumber: 39,
-                    columnNumber: 25
+                    lineNumber: 38,
+                    columnNumber: 18
                 }, undefined)
             },
             {
                 path: "/contact",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
                     fileName: "App.js",
-                    lineNumber: 43,
-                    columnNumber: 25
+                    lineNumber: 42,
+                    columnNumber: 18
                 }, undefined)
             },
             {
                 path: "/restaurants/:resId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restarantMenuDefault.default), {}, void 0, false, {
                     fileName: "App.js",
-                    lineNumber: 47,
-                    columnNumber: 25
+                    lineNumber: 46,
+                    columnNumber: 18
                 }, undefined)
             },
             {
@@ -3035,30 +3034,37 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                     }, void 0, false, void 0, void 0),
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Grocery, {}, void 0, false, {
                         fileName: "App.js",
-                        lineNumber: 51,
-                        columnNumber: 66
+                        lineNumber: 52,
+                        columnNumber: 13
                     }, undefined)
                 }, void 0, false, {
                     fileName: "App.js",
                     lineNumber: 51,
-                    columnNumber: 25
+                    columnNumber: 11
                 }, undefined)
             }
         ],
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
             fileName: "App.js",
-            lineNumber: 54,
-            columnNumber: 22
+            lineNumber: 57,
+            columnNumber: 19
         }, undefined)
     }
 ]);
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterProvider), {
-    router: appRouter
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+    basename: "/Eat-24",
+    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterProvider), {
+        router: appRouter
+    }, void 0, false, {
+        fileName: "App.js",
+        lineNumber: 64,
+        columnNumber: 5
+    }, undefined)
 }, void 0, false, {
     fileName: "App.js",
-    lineNumber: 69,
-    columnNumber: 13
+    lineNumber: 63,
+    columnNumber: 3
 }, undefined));
 var _c, _c1;
 $RefreshReg$(_c, "Grocery");
