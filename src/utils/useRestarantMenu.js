@@ -1,28 +1,32 @@
-import { MENU_API } from "./constants";
-import { MENU_API } from "../utils/constants";
-import { useState,useEffect } from "react";
+import { MENU_API } from "../utils/constants"; // Make sure to have the correct import path
+import { useState, useEffect } from "react";
 
-const useRestarantMenu = (resId)=>
-{
-const [resInfo,setResInfo]=useState(null);
+const useRestaurantMenu = (resId) => {
+  const [resInfo, setResInfo] = useState(null);
+  const [loading, setLoading] = useState(true); // Manage loading state
+  const [error, setError] = useState(null); // Manage error state
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${MENU_API}${resId}`);
 
-    //fetchdata 
-
-     useEffect(()=> {
-        fetchData();
-    },[]);
-
-    const fetchData = async()=> {
-       const data= await fetch(MENU_API+resId);
-       const json = await data.json();
-      
-    setResInfo(json.data);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const json = await response.json();
+        setResInfo(json.data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false); // Loading is complete
+      }
     };
 
+    fetchData();
+  }, [resId]);
 
-    return resInfo;
+  return { resInfo, loading, error }; // Return loading and error state
 };
 
-
-export default useRestarantMenu
+export default useRestaurantMenu;
