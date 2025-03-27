@@ -20,22 +20,36 @@ useEffect(()=>{
     fetchData();
 },[])
 
-const fetchData= async()=>
-{
-        const data= await fetch(
-         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.2183307&lng=72.9780897&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        );
-           
-       //convert Data into json  
-        const json = await data.json(); 
-
-        //calling swiggy api 
-        console.log(json);
-
-       //optional chainning   
-      setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants ); 
-      setFilteredRestarants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants );     
-};
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.2183307&lng=72.9780897&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const json = await response.json();
+      console.log(json);
+      setListOfRestaurants(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+          json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants ||
+          json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+      );
+      setFilteredRestarants(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+          json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants ||
+          json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+      );
+    } catch (error) {
+      console.error("Fetch error: ", error);
+    }
+  };
 
   
     // return ListOfRestaurants.length===0 ? <Shimmer/>:
